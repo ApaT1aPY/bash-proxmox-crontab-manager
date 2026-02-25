@@ -33,12 +33,12 @@ fi
 show_menu() {
     clear
     echo -e "${BLUE}╔════════════════════════════════════╗${DEFAULT}"
-    echo -e "${BLUE}║${GREEN}       Proxmox Cron Manager        ${BLUE}║${DEFAULT}"
+    echo -e "${BLUE}║${GREEN}        Proxmox Cron Manager        ${BLUE}║${DEFAULT}"
     echo -e "${BLUE}╠════════════════════════════════════╣${DEFAULT}"
-    echo -e "${BLUE}║${DEFAULT} 1) Просмотр задач Proxmox         ${BLUE}║${DEFAULT}"
-    echo -e "${BLUE}║${DEFAULT} 2) Добавить задачу Proxmox        ${BLUE}║${DEFAULT}"
-    echo -e "${BLUE}║${DEFAULT} 3) Редактировать задачу Proxmox   ${BLUE}║${DEFAULT}"
-    echo -e "${BLUE}║${DEFAULT} 4) Удалить задачу Proxmox         ${BLUE}║${DEFAULT}"
+    echo -e "${BLUE}║${DEFAULT} 1) Просмотр задач Proxmox          ${BLUE}║${DEFAULT}"
+    echo -e "${BLUE}║${DEFAULT} 2) Добавить задачу Proxmox         ${BLUE}║${DEFAULT}"
+    echo -e "${BLUE}║${DEFAULT} 3) Редактировать задачу Proxmox    ${BLUE}║${DEFAULT}"
+    echo -e "${BLUE}║${DEFAULT} 4) Удалить задачу Proxmox          ${BLUE}║${DEFAULT}"
     echo -e "${BLUE}║${DEFAULT} 5) Статус cron сервиса             ${BLUE}║${DEFAULT}"
     echo -e "${BLUE}║${DEFAULT} 0) Выход                           ${BLUE}║${DEFAULT}"
     echo -e "${BLUE}╚════════════════════════════════════╝${DEFAULT}"
