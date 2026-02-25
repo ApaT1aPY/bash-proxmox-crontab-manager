@@ -350,7 +350,9 @@ select_action() {
     echo "2) Мягко выключить (shutdown)" >&2
     echo "3) Немедленно выключить (stop)" >&2
     echo "4) Перезагрузить (reboot)" >&2
-    read -r -e -p "Ваш выбор (1-4): " action_choice
+    echo "5) Приостановить (suspend)" >&2
+    echo "6) Возобновить (resume)" >&2
+    read -r -e -p "Ваш выбор (1-6): " action_choice
 
     if [ -z "$action_choice" ]; then
         echo -e "${YELLOW}Действие отменено${DEFAULT}" >&2
@@ -384,6 +386,20 @@ select_action() {
                 echo "pct reboot $id"
             else
                 echo "qm reboot $id"
+            fi
+            ;;
+        5)  # Приостановить
+            if [ "$type" = "container" ]; then
+                echo "pct suspend $id"
+            else
+                echo "qm suspend $id"
+            fi
+            ;;
+        6)  # Возобновить
+            if [ "$type" = "container" ]; then
+                echo "pct resume $id"
+            else
+                echo "qm resume $id"
             fi
             ;;
         *)
