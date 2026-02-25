@@ -45,7 +45,7 @@
    ```
 3. **(Опционально) Добавьте alias для быстрого вызова:**
    ```bash
-   echo "alias proxcron='sudo /usr/local/bin/proxmoxcron-manager.sh'" >> ~/.bashrc
+   echo "alias proxcron='sudo /usr/local/bin/proxmox-cron-manager.sh'" >> ~/.bashrc
    source ~/.bashrc
    ```
    proxcron вы можете заменить на удобное название.
