@@ -57,7 +57,7 @@ confirm_action() {
     echo -en "${YELLOW}Вы хотите $action $item? (y/n): ${DEFAULT}" >&2
     read -r confirm
     if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
-        echo -e "${RED}Действие отменено${DEFAULT}" >&2
+        echo -e "${RED}Действие отменено.${DEFAULT}" >&2
         return 1
     fi
     return 0

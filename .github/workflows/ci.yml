@@ -1,0 +1,46 @@
+name: Test proxmox-crontab-manager
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create dummy Proxmox commands (pct, qm)
+        run: |
+          # Создаём заглушку для pct, которая имитирует вывод списка контейнеров
+          sudo tee /usr/local/bin/pct > /dev/null << 'EOF'
+          #!/bin/bash
+          if [ "$1" = "list" ]; then
+            echo "VMID Status     Name"
+            echo "100 running    test-container"
+          fi
+          exit 0
+          EOF
+
+          # Создаём заглушку для qm, имитирующую вывод списка ВМ
+          sudo tee /usr/local/bin/qm > /dev/null << 'EOF'
+          #!/bin/bash
+          if [ "$1" = "list" ]; then
+            echo "VMID Name                 Status     Memory"
+            echo "200 test-vm               running    2048"
+          fi
+          exit 0
+          EOF
+
+          # Даём права на исполнение
+          sudo chmod +x /usr/local/bin/pct /usr/local/bin/qm
+
+      - name: Make script executable
+        run: chmod +x proxmox-crontab-manager.sh
+
+      - name: Run script with exit option (test start)
+        run: echo "0" | sudo bash proxmox-crontab-manager.sh
