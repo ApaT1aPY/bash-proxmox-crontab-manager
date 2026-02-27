@@ -1,3 +1,11 @@
+name: Test proxmox-crontab-manager
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
 jobs:
   test:
     runs-on: ubuntu-latest
